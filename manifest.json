@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "ivanilton.printers",
+  "name": "Printers",
+  "version": "1.0.0",
+  "author": "ivanilton",
+  "license": "MIT",
+  "description": "Manage CUPS printers, automate system-config-printer tasks, and monitor the print queue.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Printers",
+    "description": "View the print queue, control printers, configure options, discover network/USB printers, and automate system-config-printer tasks.",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 15,
+      "notifyEvents": true,
+      "showCompletedJobs": false,
+      "maxHistoryJobs": 20
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Background refresh interval (seconds, 0 to disable while idle)",
+        "min": 0,
+        "max": 300,
+        "step": 5,
+        "defaultValue": 15
+      },
+      {
+        "key": "notifyEvents",
+        "type": "boolean",
+        "label": "Notify on print completion and printer alerts",
+        "defaultValue": true
+      },
+      {
+        "key": "showCompletedJobs",
+        "type": "boolean",
+        "label": "Show completed jobs by default",
+        "defaultValue": false
+      },
+      {
+        "key": "maxHistoryJobs",
+        "type": "integer",
+        "label": "Maximum completed jobs to load",
+        "min": 5,
+        "max": 50,
+        "step": 5,
+        "defaultValue": 20
+      }
+    ]
+  }
+}
